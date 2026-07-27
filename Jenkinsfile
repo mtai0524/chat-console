@@ -91,7 +91,7 @@ pipeline {
                         set xfer:clobber yes
                         set mirror:parallel-transfer-count 2
                         put /tmp/app_offline.htm -o /wwwroot/app_offline.htm
-                        mirror -R --delete --continue --no-perms --exclude app_offline.htm /var/jenkins_home/workspace/notaion-backend/publish_output /wwwroot
+                        mirror -R --delete --continue --no-perms --exclude app_offline.htm --exclude ^[Uu]ploads/ --exclude chatbot_model.zip /var/jenkins_home/workspace/notaion-backend/publish_output /wwwroot
                         rm -f /wwwroot/app_offline.htm
                         bye
                         LFTP
